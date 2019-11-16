@@ -1,0 +1,38 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "/v1/finchatbot/",
+    "schemes": ["http"],
+    "produces": ["application/json"],
+    "paths": {
+      "/question": {
+        "get": {
+          "tags": ["Question around financial services"],
+          "summary": "Ask the chatbot questions around financial services",
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "400": {
+              "description": "Bad request"
+            }
+          },
+          "content": {
+            "application/json": {}
+          },
+          "parameters": [
+            {
+              "name": "question",
+              "in": "query",
+              "description": "The question asked",
+              "required": true,
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  }

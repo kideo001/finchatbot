@@ -1,0 +1,60 @@
+doctype html
+html
+  body  
+    block content
+      style(type="text/css").
+        h1 {
+            font-size: 14pt;
+            font-family: Arial;
+            text-align: center;
+            border-style: outset;
+            border-color: #DDDDDD;
+            border-width: 1px 1px 1px 1px;
+            background-color: #e1e1ea
+        }
+        #button {
+            background-color: #494969;
+            color: #FFFFFF;
+            padding: 12px 12px;
+            text-align: center;
+            display: inline-block;
+            font-size: 10pt;
+            font-family: Arial;
+        }
+        #content {
+            text-align: center;
+            border-style: outset;
+            border-color: #DDDDDD;
+            border-width: 1px 1px 1px 1px;
+            padding: 10px 10px 10px 10px;
+            font-size: 10pt;
+            width: 50%;
+        }
+        #container {
+            text-align: center;
+        }
+        
+      script(src="https://code.jquery.com/jquery-1.9.1.js")
+      script.
+        function ask() {
+            var question = $("#question").val();
+            if (question.trim() !== "") {
+                $.ajax(
+                    {url: "/v1/finchatbot/question/",
+                    data: {question: question}, 
+                    success: function(result) {$("#content").text(result)},
+                    error: function(xhr,status,error) {$("#content").text("An error occured: " + error)}
+                });
+            } else { 
+                $("#content").text("Hi, please ask a question");
+            }
+        }
+      h1 Da Bot!!
+      div#container
+        textarea#question(rows=5, cols=100)
+        br
+        button#button(onClick=("ask()")) Ask Me!
+        br
+        br
+        br
+        span#content
