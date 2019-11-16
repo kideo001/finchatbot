@@ -4,7 +4,7 @@
   "description": "Fin Chat Bot Assessment",
   "main": "server.js",
   "scripts": {
-    "build": "cp -R ./src/views ./dist/ && npx tsc",
+    "build": "cp -R /usr/src/app/src/views /usr/src/app/dist/ && npx tsc",
     "dev": "cp -R ./src/views ./dist/ && tsc-watch --onSuccess \"node ./dist/server.js\"",
     "start": "npx pm2 start pm2.yaml"
   },
