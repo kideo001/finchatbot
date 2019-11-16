@@ -1,0 +1,42 @@
+This is the readme file for FinChatBot assessment.
+
+This demo caters for the following.
+
+1. Two types of questions, anything asked arround the word "balance" in terms of enquiring the monatary amount.
+2. Anything asked around the word "loan" in terms of applying for one
+3. It also does various greetings in English, Afrikans and Sotho. Key words looked for are hi, hello, ola, dumelang, goeie dag
+
+Basic layout of code.
+
+src
+   -config
+   -intercept
+   -services
+   -utils
+   -views
+   -server.ts
+
+Breakdown of design.
+
+A functional approach was followed in the coding of this.
+Intercepts are used to do common checks and handle common errors.
+Services and routes are handled in the same way using NodeJS express decoupled from functional code with controllers. Technicaly models could also have been used for database access
+Views were done with Jade / JQuery / CSS3
+The main entry point for this application is the server.ts file.
+
+PM2 was used to do process management of the Node components. The alternative is kubernetes but that isn't an option for this assessment.
+Docker used to build docker image
+
+Swagger was used to document API endpoints and is available at /api-docs/
+command to build.
+  docker build -t kideo/finchatbot:latest -f Dockerfile .
+
+Command to run
+  docker run -p3000:3000 kideo/finchatbot
+
+
+
+Server listens on port 3000 internally.
+
+
+Thanks
